@@ -1,0 +1,13 @@
+# Environnement Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+
+# Données (trop lourdes pour GitHub)
+projet/data/
+
+# OS
+.DS_Store
+Thumbs.db
