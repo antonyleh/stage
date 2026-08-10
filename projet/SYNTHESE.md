@@ -245,6 +245,10 @@ d'un équilibre entre production et renouvellement d'air, et sature. S'y ajouten
 deux facteurs confondus avec le nombre : l'activité des occupants et le taux de
 ventilation.
 
+*Cette impasse a été partiellement levée par la suite : en estimant le
+renouvellement d'air propre à chaque logement (section 9), le pouvoir
+discriminant passe de 0.60 à 0.68.*
+
 **Ajouter température et humidité** — mesurées par la même sonde, aux mêmes
 instants. Gain nul sur la présence (+0.001) et négatif sur le dénombrement
 (−0.024). Prises isolément elles valent mieux que le hasard (0.696), mais leur
@@ -285,18 +289,86 @@ d'un même logement.
 
 ---
 
-## 9. Perspectives
+## 9. Le renouvellement d'air
 
-**Estimer le taux de renouvellement d'air** à partir des phases de décroissance
-du CO2, puis le comparer au type de ventilation déclaré. C'est la piste la plus
-riche scientifiquement, et directement pertinente pour un travail sur la qualité
-de l'air intérieur. Elle permettrait aussi de retirer ce facteur de l'équation
-du dénombrement, où il se confond aujourd'hui avec l'effet du nombre d'occupants.
+En l'absence d'occupants, plus aucun CO2 n'est produit : la concentration décroît
+vers celle de l'extérieur, d'autant plus vite que la ventilation est efficace.
+La pente de cette décroissance donne le **taux de renouvellement d'air** (en
+volumes par heure). Le semainier permet d'isoler avec certitude les périodes
+d'inoccupation, condition nécessaire à la mesure.
 
-**Exploiter la régularité du rythme comme variable à part entière.** Elle
-explique la performance mieux que toute caractéristique déclarée ; en faire un
+**La méthode fonctionne** : 453 estimations sur 196 logements, avec un R² médian
+de **0.975** — les décroissances suivent fidèlement le modèle exponentiel.
+
+**Le parc est majoritairement sous-ventilé** :
+
+| | Taux de renouvellement |
+|---|---|
+| 1ᵉʳ quartile | 0.24 h⁻¹ |
+| **Médiane** | **0.34 h⁻¹** |
+| 3ᵉ quartile | 0.46 h⁻¹ |
+
+**79 % des logements** se situent sous 0.5 h⁻¹, ordre de grandeur attendu en
+logement d'après la réglementation.
+
+**Mais la ventilation déclarée ne prédit pas le renouvellement mesuré** :
+
+| Ventilation déclarée | Logements | ACH médian |
+|---|---|---|
+| Aucune | 38 | 0.279 |
+| Extracteurs | 17 | 0.303 |
+| Naturelle | 62 | 0.334 |
+| VMC | 79 | 0.350 |
+
+L'ordre va dans le sens attendu mais les écarts ne sont pas significatifs
+(p = 0.32). L'interprétation la plus vraisemblable — au vu de la qualité des
+ajustements — est qu'un logement **équipé** n'est pas nécessairement **ventilé** :
+une VMC obstruée, arrêtée ou mal entretenue ne fait pas mieux qu'une ventilation
+naturelle.
+
+**Et cela débloque le dénombrement** :
+
+| Indicateur | AUC (1 occupant contre 2 ou plus) |
+|---|---|
+| Concentration seule | 0.603 |
+| × taux de renouvellement | 0.639 |
+| **× renouvellement × surface** | **0.683** |
+
+Le mécanisme est direct :
+
+| | 1 occupant | 2 occupants ou plus |
+|---|---|---|
+| Renouvellement faible | 654 ppm | 981 ppm |
+| Renouvellement élevé | 488 ppm | 600 ppm |
+
+**Deux personnes dans un logement bien ventilé produisent moins de CO2 mesuré
+qu'une seule dans un logement confiné.** C'est ce que prédit l'équation de bilan,
+et cela explique l'échec du dénombrement tant qu'on ne regardait que la
+concentration. Ce gain vaut par ailleurs validation indépendante de la méthode :
+des estimations qui ne seraient que du bruit n'amélioreraient aucune prédiction.
+
+**Limites** — la concentration extérieure n'a pas été mesurée : la faire varier de
+350 à 450 ppm déplace l'ACH médian de 40 % en relatif. Les comparaisons entre
+logements restent valides, les valeurs absolues sont à manier avec prudence. Par
+ailleurs seuls 196 logements sur 451 disposent d'une estimation, faute de
+périodes d'inoccupation assez longues ailleurs.
+
+---
+
+## 10. Perspectives
+
+**Exploiter la régularité du rythme comme variable à part entière.** Elle explique
+la performance du modèle mieux que toute caractéristique déclarée ; en faire un
 objet d'étude plutôt qu'un facteur explicatif ouvrirait une lecture des modes
 d'habiter.
+
+**Approfondir l'écart entre équipement et fonctionnement.** Que des logements à
+VMC ne se renouvellent pas mieux que des logements sans ventilation mérite
+vérification sur un jeu de données où le fonctionnement des installations est
+contrôlé, et non seulement déclaré.
+
+**Mesurer la concentration extérieure** dans toute campagne ultérieure : c'est la
+principale source d'incertitude sur les valeurs absolues de renouvellement.
 
 ---
 
@@ -309,7 +381,8 @@ d'habiter.
 | `estimation_occupants.ipynb` | Dénombrement · apport température/humidité | à jour |
 | `clustering_journees.ipynb` | Clustering sur signal continu | conservé |
 | `clustering_paliers.ipynb` | Clustering sur signal discrétisé | conservé |
-| `clustering_datetype.ipynb` | Exploration initiale (49 cellules) | à archiver |
+| `renouvellement_air.ipynb` | **Renouvellement d'air** · débloque le dénombrement | à jour |
+| `archive/clustering_datetype.ipynb` | Exploration initiale (49 cellules) | archivé |
 | `eda.ipynb`, `preparation.ipynb` | Exploration et mise en forme des données | — |
 
 Les paramètres communs (fenêtre de lissage, seuils, graines aléatoires) sont
