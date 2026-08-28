@@ -1,0 +1,30 @@
+CODELIEU,motifs,mesures,journées,p05,médiane,amplitude,sature (%)
+01-M020,butée fréquente,1001,8,342.0,1055.0,5658.0,5.4
+01-M025,suivi trop court,104,2,510.8,634.3,359.5,0.0
+01-M027,jamais renouvelé + suivi trop court,47,2,1948.6,2921.0,1998.4,0.0
+02-M015,suivi trop court,115,2,360.0,389.0,480.3,0.0
+02-M027,suivi trop court,114,2,426.2,485.5,174.6,0.0
+02-M028,capteur figé,856,7,249.0,274.0,63.0,0.0
+02-M047,butée fréquente,1007,8,332.3,971.0,5667.7,11.0
+02-M052,suivi trop court,117,2,597.4,803.0,1767.8,0.0
+02-M057,suivi trop court,115,2,412.1,583.0,576.2,0.0
+03-M024,suivi trop court,123,2,550.0,718.0,432.5,0.0
+03-M035,jamais renouvelé,1440,11,1292.8,2305.0,2262.3,0.0
+03-M052,butée fréquente,1007,8,435.3,1615.0,4870.6,1.2
+03-M077,suivi trop court,151,2,355.0,570.0,709.5,0.0
+04-M004,suivi trop court,174,2,389.3,861.5,1685.7,0.0
+04-M014,capteur figé,1002,8,420.0,452.0,93.9,0.0
+04-M029,suivi trop court,130,2,908.9,1236.0,626.6,0.0
+04-M035,suivi trop court,136,2,875.2,1117.5,827.8,0.0
+05-M020,suivi trop court,143,2,386.5,573.0,472.3,0.0
+05-M060,butée fréquente,1153,9,521.8,1217.0,4220.8,2.1
+06-M015,butée fréquente,997,8,318.0,2514.0,5679.2,4.8
+07-M008,suivi trop court,182,2,756.3,1157.5,1166.3,0.0
+07-M023,suivi trop court,141,2,361.0,1520.0,1909.0,0.0
+08-M016,suivi trop court,149,2,531.4,769.0,460.8,0.0
+10-M050,suivi trop court,196,2,468.0,762.5,1975.0,0.0
+10-M051,suivi trop court,123,2,577.1,877.0,443.8,0.0
+11-M118,capteur figé + jamais renouvelé,1004,8,2058.0,2101.2,55.7,0.0
+12-M008,suivi trop court,126,2,502.8,1204.0,1311.5,0.0
+12-M011,butée fréquente,986,8,385.0,1508.0,4839.5,2.0
+12-M031,capteur figé,996,8,355.0,384.0,73.0,0.0
